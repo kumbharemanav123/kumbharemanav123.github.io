@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manav Kumbhare — Prompt Engineer & AI Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d0d0d;
+    --ink-muted: #555;
+    --ink-faint: #999;
+    --surface: #fafaf8;
+    --card: #ffffff;
+    --border: #e8e6e0;
+    --accent: #1a1a2e;
+    --accent2: #e84545;
+    --accent3: #0066ff;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Sora', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 4rem;
+    background: rgba(250,250,248,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 4rem;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 2px;
+    background: var(--accent2);
+  }
+  .hero-name {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-name span {
+    color: var(--accent3);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #222; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--ink); background: #f0f0ee; }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+  }
+  .hero-visual {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+  }
+  .terminal-bar {
+    display: flex; gap: 6px; align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #ff5f57; }
+  .dot-y { background: #febc2e; }
+  .dot-g { background: #28c840; }
+  .terminal-content { font-family: var(--mono); font-size: 12.5px; line-height: 1.9; }
+  .t-comment { color: #888; }
+  .t-key { color: #0066ff; }
+  .t-val { color: #0d0d0d; }
+  .t-str { color: #2d9e4f; }
+  .t-cursor {
+    display: inline-block;
+    width: 8px; height: 14px;
+    background: var(--ink);
+    vertical-align: -2px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .stat-chips {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-top: 1.5rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: #f0f0ee;
+    color: var(--ink-muted);
+    letter-spacing: 0.03em;
+  }
+  .chip-blue { background: #e8f0ff; color: #0044cc; }
+  .chip-red { background: #fff0f0; color: #cc2200; }
+  .chip-green { background: #edfaf2; color: #1a7a3a; }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { border-color: #bbb; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .skill-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+  .icon-blue { background: #e8f0ff; }
+  .icon-red { background: #fff0f0; }
+  .icon-green { background: #edfaf2; }
+  .icon-purple { background: #f0eeff; }
+  .icon-orange { background: #fff5e8; }
+  .icon-teal { background: #e8f9f5; }
+  .skill-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+  .skill-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+  .skill-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1rem; }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--surface); }
+  .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-meta { }
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .exp-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .exp-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: #edfaf2;
+    color: #1a7a3a;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .exp-badge.freelance { background: #fff5e8; color: #a05000; }
+  .exp-role {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .exp-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .exp-bullets li {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent3);
+    font-size: 12px;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--accent); color: #fff; }
+  #projects .section-label { color: #e84545; }
+  #projects .section-title { color: #fff; }
+  #projects .section-sub { color: rgba(255,255,255,0.55); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .project-card:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+  }
+  .project-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .project-stack {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .stack-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* ABOUT */
+  #about { background: var(--card); border-top: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-left {}
+  .about-text { font-size: 15px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+  .about-details { display: flex; flex-direction: column; gap: 0.75rem; }
+  .about-detail {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 13.5px;
+  }
+  .detail-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    min-width: 80px;
+  }
+  .detail-val { color: var(--ink); font-weight: 500; }
+  .about-right {}
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .metric-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .metric-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    display: block;
+  }
+  .metric-label {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  #contact .section-title { margin-left: auto; margin-right: auto; }
+  #contact .section-sub { margin-left: auto; margin-right: auto; }
+  .contact-links {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--card);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .contact-link:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .contact-link svg { flex-shrink: 0; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+  }
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .footer-right {
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">mk.dev</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left fade-in">
+    <span class="hero-tag">Prompt Engineer & AI Specialist</span>
+    <h1 class="hero-name">Manav<br><span>Kumbhare</span></h1>
+    <p class="hero-sub">
+      Building smarter AI systems — from adversarial red-teaming to production-grade 
+      LLM pipelines. Specialized in prompt engineering, RLHF, and data annotation 
+      for enterprise AI products.
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#projects">View Projects ↓</a>
+      <a class="btn-outline" href="mailto:kumbharemanav@gmail.com">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right fade-in">
+    <div class="hero-visual">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="terminal-content">
+        <div class="t-comment">// prompt_engineer.json</div>
+        <div><span class="t-key">"name"</span>: <span class="t-str">"Manav Kumbhare"</span>,</div>
+        <div><span class="t-key">"role"</span>: <span class="t-str">"Prompt Engineer"</span>,</div>
+        <div><span class="t-key">"models"</span>: [</div>
+        <div>&nbsp;&nbsp;<span class="t-str">"GPT-4"</span>, <span class="t-str">"Claude"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="t-str">"Gemini"</span>, <span class="t-str">"LLaMA"</span></div>
+        <div>],</div>
+        <div><span class="t-key">"specialties"</span>: [</div>
+        <div>&nbsp;&nbsp;<span class="t-str">"RLHF"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="t-str">"adversarial testing"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="t-str">"AI safety eval"</span></div>
+        <div>]<span class="t-cursor"></span></div>
+      </div>
+      <div class="stat-chips">
+        <span class="chip chip-blue">Python</span>
+        <span class="chip chip-red">RLHF</span>
+        <span class="chip chip-green">OWASP LLM</span>
+        <span class="chip">MITRE ATLAS</span>
+        <span class="chip">n8n / Zapier</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I bring</div>
+  <h2 class="section-title">Core Competencies</h2>
+  <p class="section-sub">A focused skill set built at the intersection of prompt engineering, AI safety, and data pipeline quality.</p>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-blue">🧠</div>
+      <div class="skill-title">Prompt Engineering</div>
+      <div class="skill-desc">Designing, iterating, and optimizing prompts across GPT-4, Claude, Gemini, and open-source models. Skilled in system prompt architecture, chain-of-thought, and few-shot design.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Multimodal</span>
+        <span class="skill-tag">Chain-of-Thought</span>
+        <span class="skill-tag">Few-shot</span>
+        <span class="skill-tag">System Prompts</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-red">🛡️</div>
+      <div class="skill-title">Adversarial AI Testing</div>
+      <div class="skill-desc">Red-teaming LLM systems against OWASP LLM Top 10, MITRE ATLAS, and MCP SecBench. Assessing model inversion, training data leakage, and unsafe model behavior.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">OWASP LLM</span>
+        <span class="skill-tag">MITRE ATLAS</span>
+        <span class="skill-tag">AI Safety</span>
+        <span class="skill-tag">Red Teaming</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-green">⚙️</div>
+      <div class="skill-title">Workflow Automation</div>
+      <div class="skill-desc">Building AI-driven automation workflows using n8n, Zapier, and Make. Integrating LLMs into CRM and business process pipelines via APIs and JSON data handling.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">n8n</span>
+        <span class="skill-tag">Zapier</span>
+        <span class="skill-tag">Make</span>
+        <span class="skill-tag">API Integration</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-purple">📊</div>
+      <div class="skill-title">RLHF & Model Fine-Tuning</div>
+      <div class="skill-desc">Applied RLHF techniques across multiple AI training platforms. Evaluating model outputs, writing preference data, and guiding model behavior with structured rubrics.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">RLHF</span>
+        <span class="skill-tag">Preference Data</span>
+        <span class="skill-tag">Model Eval</span>
+        <span class="skill-tag">Rubric Design</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-orange">🐍</div>
+      <div class="skill-title">Python & Data Engineering</div>
+      <div class="skill-desc">Writing Python scripts for automation, ML experiments, and data pipelines. SQL for data querying. Experienced with Gymnasium, Docker, and API-based application development.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Gymnasium</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon icon-teal">🏷️</div>
+      <div class="skill-title">Data Annotation & Quality</div>
+      <div class="skill-desc">Large-scale annotation for text, image, and multimodal datasets. Bounding box, image segmentation, and NLP labeling with strict quality validation standards.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">NLP Labeling</span>
+        <span class="skill-tag">Bounding Box</span>
+        <span class="skill-tag">QA Validation</span>
+        <span class="skill-tag">Multimodal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work History</div>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Four years building expertise across the AI stack — from data annotation to adversarial safety evaluation.</p>
+  <div class="exp-timeline">
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2026 – Present</div>
+        <div class="exp-company">Zerberus AI</div>
+        <div class="exp-badge">Part-time</div>
+      </div>
+      <div>
+        <div class="exp-role">Adversarial Prompt Engineer</div>
+        <ul class="exp-bullets">
+          <li>Designing adversarial prompts to evaluate LLM safety, security, and reliability</li>
+          <li>Assessing risks including model inversion, training data leakage, and unsafe behavior</li>
+          <li>Aligning test cases with MITRE ATLAS, OWASP LLM Top 10, and MCP SecBench frameworks</li>
+          <li>Producing audit-ready Zerberus datapoint evaluations with defined rubrics and ideal responses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Sep 2025 – Present</div>
+        <div class="exp-company">Innodata Inc.</div>
+        <div class="exp-badge freelance">Freelance</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Annotation Specialist</div>
+        <ul class="exp-bullets">
+          <li>Annotating, reviewing, and validating large datasets for ML model training</li>
+          <li>High-quality labeling across text, image, and multimodal data types</li>
+          <li>Maintaining data integrity and consistency against detailed project guidelines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Jan – Dec 2025</div>
+        <div class="exp-company">SOUL AI</div>
+        <div class="exp-badge freelance">Freelance</div>
+      </div>
+      <div>
+        <div class="exp-role">Prompt Engineer</div>
+        <ul class="exp-bullets">
+          <li>Evaluated and refined complex AI prompts against structured rubrics</li>
+          <li>Applied RLHF techniques to improve model clarity, consistency, and alignment</li>
+          <li>Provided corrected responses to improve model training signal quality</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Dec 2023 – May 2025</div>
+        <div class="exp-company">Outlier AI</div>
+        <div class="exp-badge freelance">Freelance</div>
+      </div>
+      <div>
+        <div class="exp-role">LLM Trainer — Coding Expert</div>
+        <ul class="exp-bullets">
+          <li>Evaluated and refined model-generated code for accuracy and reliability</li>
+          <li>Identified logic/syntax errors and created correct reference solutions</li>
+          <li>Applied RLHF techniques to guide the model toward better coding practices</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Jan – May 2022</div>
+        <div class="exp-company">Scanzar Outsourcing</div>
+        <div class="exp-badge">Trainee</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Analyst Trainee</div>
+        <ul class="exp-bullets">
+          <li>Collected, cleaned, and prepared datasets for downstream analysis</li>
+          <li>Wrote SQL queries for data exploration and created visualizations</li>
+          <li>Contributed to marketing and business performance reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">Hands-on experiments at the edge of AI — from gesture interfaces to LLM decision-making failures.</p>
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="project-num">01 / Research</div>
+      <div class="project-title">Smart Grid RL Environment</div>
+      <div class="project-desc">Production-grade RL environment simulating real-time energy grid management. Integrated Claude Opus via API for systematic testing. Proved LLMs fail at adaptive decision-making with -3000 average reward — a rigorous, reproducible failure study.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Gymnasium</span>
+        <span class="stack-tag">Claude API</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">RL</span>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-num">02 / AI Systems</div>
+      <div class="project-title">AI Social Ad Variations Engine</div>
+      <div class="project-desc">Prompt-based system generating multiple social ad copy variants from a single brief. Structured templates auto-switch tone, audience, and platform (Instagram, Facebook, LinkedIn, Google Ads) with measurable brand consistency.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Prompt Engineering</span>
+        <span class="stack-tag">LLM</span>
+        <span class="stack-tag">Ad Copy</span>
+        <span class="stack-tag">A/B Testing</span>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-num">03 / Computer Vision</div>
+      <div class="project-title">Air Canvas (Published)</div>
+      <div class="project-desc">Real-time drawing system using hand gesture tracking. Color detection, contour tracking, and fingertip position translation into on-screen strokes — no physical tools required. Published in IRJMETS.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">OpenCV</span>
+        <span class="stack-tag">Computer Vision</span>
+        <span class="stack-tag">HCI</span>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-num">04 / ML</div>
+      <div class="project-title">Credit Card Fraud Detection</div>
+      <div class="project-desc">Machine learning model analyzing transaction patterns and anomalies with high classification accuracy. Focused on imbalanced dataset handling and feature engineering for financial fraud signals.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Scikit-learn</span>
+        <span class="stack-tag">ML</span>
+        <span class="stack-tag">Data Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left fade-in">
+      <div class="section-label">Background</div>
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        I'm a data and AI professional from Wardha, Maharashtra, working at the frontier where AI systems are trained, evaluated, and stress-tested. My path has taken me from data analytics to LLM training to adversarial safety evaluation — each step deepening my understanding of how language models actually work and fail.
+      </p>
+      <p class="about-text">
+        I hold a B.Tech in Computer Science from RTM Nagpur University (8.07 CGPA) and have spent the past three years building specialized expertise in prompt engineering and AI alignment across multiple platforms.
+      </p>
+      <div class="about-details">
+        <div class="about-detail"><span class="detail-label">Location</span><span class="detail-val">Wardha, Maharashtra, India</span></div>
+        <div class="about-detail"><span class="detail-label">Education</span><span class="detail-val">B.Tech CSE — RTM Nagpur University</span></div>
+        <div class="about-detail"><span class="detail-label">Languages</span><span class="detail-val">English · Hindi · Marathi</span></div>
+        <div class="about-detail"><span class="detail-label">Available</span><span class="detail-val">Open to full-time remote roles</span></div>
+      </div>
+    </div>
+    <div class="about-right fade-in">
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <span class="metric-num">4+</span>
+          <div class="metric-label">Years in AI/Data</div>
+        </div>
+        <div class="metric-box">
+          <span class="metric-num">5</span>
+          <div class="metric-label">AI Platforms</div>
+        </div>
+        <div class="metric-box">
+          <span class="metric-num">8.07</span>
+          <div class="metric-label">B.Tech CGPA</div>
+        </div>
+        <div class="metric-box">
+          <span class="metric-num">1</span>
+          <div class="metric-label">Published Paper</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Talk</div>
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">Open to full-time remote roles in prompt engineering, AI systems, and LLM product development.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kumbharemanav@gmail.com">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      kumbharemanav@gmail.com
+    </a>
+    <a class="contact-link" href="https://www.linkedin.com/in/manav-kumbhare893118228" target="_blank">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a class="contact-link" href="tel:+919604600747">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +91 9604600747
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">manav-kumbhare.dev</span>
+  <span class="footer-right">Prompt Engineer & AI Specialist · Maharashtra, India</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
