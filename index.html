@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Manav Kumbhare, an AI evaluation, dataset quality, and LLM training professional.">
+  <meta name="theme-color" content="#07111f">
+  <title>Manav Kumbhare | AI Evaluation &amp; LLM Quality</title>
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem("manav-theme") || "dark";
+  </script>
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Manav Kumbhare, home">
+        <span class="brand-mark">MK</span>
+        <span class="brand-name">Manav Kumbhare</span>
+      </a>
+
+      <div class="nav-links" id="nav-links" data-nav-links>
+        <a href="#about">About</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a class="nav-resume" href="assets/Manav-Kumbhare-CV.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="home">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <div class="eyebrow"><span class="status-dot"></span> AI evaluation · Dataset quality · Model reliability</div>
+          <h1>Hi, I’m Manav.<br><span>I test how AI thinks.</span></h1>
+          <p class="hero-lede">I work on the questions behind reliable AI: Is the prompt clear? Is the rubric fair? Does the verifier test the right thing? And what happens when the model takes an unexpected path?</p>
+          <p class="hero-support">My work combines careful human judgment with Python, Docker, Pytest, adversarial testing, and structured evaluation workflows.</p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://kumbharemanav123.github.io/doubledeep-ai/" target="_blank" rel="noreferrer">Try my AI image detector <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="assets/Manav-Kumbhare-CV.pdf" target="_blank" rel="noreferrer">Read my resume</a>
+          </div>
+
+          <div class="quick-links" aria-label="Contact links">
+            <a href="https://www.linkedin.com/in/manav-kumbhare-893118228" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+            <a href="https://github.com/kumbharemanav123" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+            <a href="mailto:kumbharemanav@gmail.com">Email <span>↗</span></a>
+            <span>Maharashtra, India · Remote worldwide</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal data-delay="150" aria-label="AI evaluation workflow illustration">
+          <div class="signal-card signal-card-main">
+            <div class="signal-header">
+              <span>Evaluation pipeline</span>
+              <span class="live-label"><i></i> active</span>
+            </div>
+            <div class="signal-score">
+              <span class="signal-number">01</span>
+              <div><strong>Define</strong><small>Prompt · rubric · edge cases</small></div>
+              <span class="signal-check">✓</span>
+            </div>
+            <div class="signal-score">
+              <span class="signal-number">02</span>
+              <div><strong>Stress-test</strong><small>Adversarial · safety · leakage</small></div>
+              <span class="signal-check">✓</span>
+            </div>
+            <div class="signal-score">
+              <span class="signal-number">03</span>
+              <div><strong>Verify</strong><small>Oracle runs · pytest · QA</small></div>
+              <span class="signal-pulse"></span>
+            </div>
+            <div class="signal-chart" aria-hidden="true">
+              <span style="--height: 35%"></span><span style="--height: 52%"></span><span style="--height: 44%"></span><span style="--height: 72%"></span><span style="--height: 63%"></span><span style="--height: 88%"></span><span style="--height: 96%"></span>
+            </div>
+          </div>
+          <div class="floating-tag floating-tag-one">Rubric clarity <b>98%</b></div>
+          <div class="floating-tag floating-tag-two">Failure mode found <b>+1</b></div>
+          <div class="hero-stamp" aria-hidden="true">HUMAN<br>IN THE<br>LOOP</div>
+        </div>
+      </div>
+
+      <div class="container proof-strip" data-reveal>
+        <span>Evaluation focus</span>
+        <div>AI agents</div><div>LLM quality</div><div>Dataset QA</div><div>Safety testing</div><div>Verifier design</div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div><span class="section-index">01</span><span class="section-kicker">About</span></div>
+          <h2>Rigorous evaluation for systems that operate in the real world.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <p class="large-copy">My work sits where human judgment meets executable validation. I review prompts, outputs, rubrics, and test environments to find the subtle weaknesses that can make an AI benchmark misleading.</p>
+            <p>I have contributed across AI-agent task authoring, coding evaluation, adversarial prompt design, RLHF-style feedback, and dataset quality assurance. I’m especially effective at identifying ambiguous instructions, answer leakage, weak verifiers, difficulty mismatch, hallucination risks, and inconsistent quality criteria.</p>
+            <p>With Python, Docker, Pytest, and structured technical writing, I can move from qualitative review to reproducible evaluation workflows.</p>
+          </div>
+
+          <div class="capability-grid" data-reveal data-delay="120">
+            <article class="capability-card">
+              <span>01</span><h3>Task quality</h3>
+              <p>Sharper prompts, calibrated difficulty, clear success criteria, and fewer hidden assumptions.</p>
+            </article>
+            <article class="capability-card accent-card">
+              <span>02</span><h3>Model reliability</h3>
+              <p>Systematic review of reasoning, correctness, instruction following, safety, and failure patterns.</p>
+            </article>
+            <article class="capability-card">
+              <span>03</span><h3>Executable proof</h3>
+              <p>Dockerized tasks, oracle solutions, verifier tests, and repeatable QA runs that support decisions.</p>
+            </article>
+            <article class="capability-card">
+              <span>04</span><h3>Human feedback</h3>
+              <p>Precise rubrics and RLHF-style feedback that help models become more useful and consistent.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading compact" data-reveal>
+          <div><span class="section-index">02</span><span class="section-kicker">Capabilities</span></div>
+          <h2>A practical toolkit for evaluation, safety, and quality.</h2>
+        </div>
+
+        <div class="skills-layout" data-reveal>
+          <div class="skill-group">
+            <h3>Evaluation</h3>
+            <div class="skill-list">
+              <span>AI Agent Evaluation</span><span>LLM Evaluation</span><span>Dataset Quality Assurance</span><span>Rubric-Based Evaluation</span><span>AI Benchmark Task Design</span><span>Prompt QA</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Alignment &amp; Safety</h3>
+            <div class="skill-list">
+              <span>RLHF</span><span>Prompt Engineering</span><span>Adversarial Prompt Testing</span><span>LLM Safety Testing</span><span>Reliability Analysis</span><span>Failure Analysis</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Engineering</h3>
+            <div class="skill-list">
+              <span>Python</span><span>Docker</span><span>Pytest</span><span>Git</span><span>Linux</span><span>Bash</span><span>Test Automation</span><span>Technical Writing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section artifacts-section" id="artifacts">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div><span class="section-index">03</span><span class="section-kicker">Work artifacts</span></div>
+          <h2>A closer look at how I evaluate AI work.</h2>
+        </div>
+
+        <div class="artifact-intro" data-reveal>
+          <p>Good evaluation leaves evidence. These are the kinds of artifacts I build to turn subjective feedback into something a researcher, engineer, or reviewer can inspect and reproduce.</p>
+          <span>Selected examples · Recreated without client data</span>
+        </div>
+
+        <div class="artifact-grid">
+          <article class="artifact-card artifact-wide" data-reveal>
+            <div class="artifact-card-head"><span>01 / Task audit</span><strong>Prompt quality review</strong></div>
+            <div class="audit-preview" aria-hidden="true">
+              <div class="audit-row"><span>Instruction clarity</span><i class="good"></i><b>Clear</b></div>
+              <div class="audit-row"><span>Hidden assumptions</span><i class="warn"></i><b>2 found</b></div>
+              <div class="audit-row"><span>Answer leakage</span><i class="good"></i><b>None</b></div>
+              <div class="audit-row"><span>Difficulty calibration</span><i class="warn"></i><b>Review</b></div>
+            </div>
+            <p>I inspect whether a task says what it means, contains enough context, avoids accidental clues, and measures the intended capability.</p>
+            <details class="artifact-details-native"><summary>What I look for <span>+</span></summary><p>Ambiguous verbs, missing output contracts, impossible constraints, hidden dependencies, reward hacking paths, weak examples, and mismatches between the prompt and verifier.</p></details>
+          </article>
+
+          <article class="artifact-card" data-reveal data-delay="60">
+            <div class="artifact-card-head"><span>02 / Rubric</span><strong>Scoring matrix</strong></div>
+            <div class="rubric-preview" aria-hidden="true">
+              <div><span>Correctness</span><b>40</b></div><div><span>Reasoning</span><b>25</b></div><div><span>Safety</span><b>20</b></div><div><span>Clarity</span><b>15</b></div>
+            </div>
+            <p>I design criteria that separate excellent, acceptable, and failing outputs without rewarding style over substance.</p>
+            <details class="artifact-details-native"><summary>Why it matters <span>+</span></summary><p>A useful rubric gives different reviewers the same decision framework and makes feedback actionable for training.</p></details>
+          </article>
+
+          <article class="artifact-card" data-reveal data-delay="120">
+            <div class="artifact-card-head"><span>03 / Verification</span><strong>Test trace</strong></div>
+            <div class="test-preview" aria-hidden="true">
+              <code><span>PASS</span> test_expected_output</code>
+              <code><span>PASS</span> test_edge_case_empty</code>
+              <code><b>FAIL</b> test_rejects_shortcut</code>
+              <code><span>PASS</span> test_no_answer_leak</code>
+            </div>
+            <p>I use oracle runs and verifier tests to check that valid approaches pass and shallow shortcuts fail for the right reason.</p>
+            <details class="artifact-details-native"><summary>Verification notes <span>+</span></summary><p>I compare the natural-language requirement, reference solution, environment behavior, and automated tests as one evaluation system.</p></details>
+          </article>
+
+          <article class="artifact-card artifact-wide" data-reveal>
+            <div class="artifact-card-head"><span>04 / Adversarial review</span><strong>Failure-mode map</strong></div>
+            <div class="failure-map" aria-hidden="true">
+              <span>Prompt injection</span><span>Hallucination</span><span>Data leakage</span><span>Unsafe completion</span><span>Tool misuse</span><span>Over-refusal</span>
+            </div>
+            <p>I probe beyond the happy path: unusual wording, malicious instructions, conflicting priorities, unsupported claims, and tool-use mistakes.</p>
+            <details class="artifact-details-native"><summary>Testing approach <span>+</span></summary><p>Each test has a clear risk hypothesis, expected safe behavior, severity level, and evidence that another reviewer can audit.</p></details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div><span class="section-index">04</span><span class="section-kicker">Experience</span></div>
+          <h2>Building better feedback loops for AI.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Feb 2026 — Present</span><span>Independent contributor</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://www.afterquery.com/" target="_blank" rel="noreferrer"><span class="company-logo"><img src="https://www.google.com/s2/favicons?domain=afterquery.com&amp;sz=128" alt=""></span><div><h3>AI Agent Evaluation Task Author</h3><p>AfterQuery</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Author and validate AI-agent evaluation tasks using Terminal-Bench and Harbor-style workflows. Develop task specifications, Docker environments, oracle solutions, and Pytest verifiers, then conduct NOP and oracle runs to identify ambiguity, answer leakage, weak validation, and difficulty mismatches.</p><div class="mini-tags"><span>Agent evaluation</span><span>Docker</span><span>Pytest</span></div></div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Dec 2025 — Present</span><span>Independent contributor</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://www.linkedin.com/search/results/companies/?keywords=AirDawg%20Lab" target="_blank" rel="noreferrer"><span class="company-logo company-monogram">AD</span><div><h3>Technical Contributor &amp; AI Researcher</h3><p>AirDawg Lab</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Contribute to Python-based AI training and research through reference implementations, module debugging, solution assessment, and technical documentation. Analyze recurring failure patterns and compare alternative approaches to strengthen model reliability.</p><div class="mini-tags"><span>Python</span><span>Research</span><span>Reliability</span></div></div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Jan 2026 — Apr 2026</span><span>Contract</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://www.linkedin.com/search/results/companies/?keywords=Zerberus%20AI" target="_blank" rel="noreferrer"><span class="company-logo company-monogram logo-zerberus">Z</span><div><h3>Adversarial Prompt Engineer</h3><p>Zerberus AI</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Designed adversarial prompts and audit-ready test cases covering prompt injection, hallucination, unsafe responses, and data leakage. Established rubrics, ideal responses, and evaluation criteria for structured LLM safety and robustness assessments.</p><div class="mini-tags"><span>Red teaming</span><span>Safety</span><span>Rubrics</span></div></div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Jan 2025 — Present</span><span>Freelance</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://deccanexperts.ai/" target="_blank" rel="noreferrer"><span class="company-logo"><img src="https://www.google.com/s2/favicons?domain=deccanexperts.ai&amp;sz=128" alt=""></span><div><h3>Prompt Engineer</h3><p>SOUL AI / Deccan AI</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Design and refine prompts to improve accuracy, clarity, consistency, and instruction adherence. Assess model outputs against defined quality standards, revise deficient responses, and provide structured RLHF-style feedback across varied use cases.</p><div class="mini-tags"><span>Prompt design</span><span>RLHF</span><span>Output QA</span></div></div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Feb 2024 — Nov 2025</span><span>AI training</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://outlier.ai/" target="_blank" rel="noreferrer"><span class="company-logo"><img src="https://www.google.com/s2/favicons?domain=outlier.ai&amp;sz=128" alt=""></span><div><h3>LLM Trainer, Coding Expert</h3><p>Outlier AI</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Evaluated model-generated code for functional correctness, logical soundness, and reliability. Reviewed coding prompts, identified syntax and reasoning defects, developed reference solutions, and delivered precise feedback to improve response quality.</p><div class="mini-tags"><span>Code evaluation</span><span>Reference solutions</span><span>QA</span></div></div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-meta"><span>Previous experience</span><span>Data operations</span></div>
+            <div class="timeline-role"><a class="company-link" href="https://www.innodata.com/" target="_blank" rel="noreferrer"><span class="company-logo"><img src="https://www.google.com/s2/favicons?domain=innodata.com&amp;sz=128" alt=""></span><div><h3>Data Annotation Specialist</h3><p>Innodata Inc.</p></div><span class="company-arrow">↗</span></a></div>
+            <div class="timeline-body"><p>Supported the development of high-quality AI datasets through precise annotation, guideline-based review, consistency assessment, and quality control. Translated complex project requirements into dependable, consistently labeled data.</p><div class="mini-tags"><span>Annotation</span><span>Dataset QA</span><span>Guidelines</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div><span class="section-index">05</span><span class="section-kicker">Selected projects</span></div>
+          <h2>Applied AI, measured with intent.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured-project" data-reveal>
+            <div class="project-top"><span class="project-number">01</span><span class="project-type">Model reliability</span></div>
+            <div class="project-art detector-art" aria-hidden="true"><div class="scan-line"></div><div class="scan-box"><span></span><span></span><span></span><span></span></div><b>HUMAN / AI / EDITED</b></div>
+            <h3>AI Image Detector</h3>
+            <p>An API-driven system for identifying human-created, AI-generated, and digitally manipulated imagery using model signals, visual artifacts, and structured feedback.</p>
+            <div class="project-tags"><span>Python</span><span>Computer Vision</span><span>API</span><span>Model evaluation</span></div>
+            <a class="project-link" href="https://kumbharemanav123.github.io/doubledeep-ai/" target="_blank" rel="noreferrer">Open live detector <span>↗</span></a>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="80">
+            <div class="project-top"><span class="project-number">02</span><span class="project-type">Reinforcement learning</span></div>
+            <div class="project-art grid-art" aria-hidden="true"><div class="energy-line"></div><i></i><i></i><i></i><i></i></div>
+            <h3>Smart Grid RL Environment</h3>
+            <p>A Gymnasium environment for energy-management agents with partial observability, stochastic pricing, delayed consequences, and structured QA logging.</p>
+            <div class="project-tags"><span>Python</span><span>Gymnasium</span><span>Docker</span><span>Claude API</span></div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-top"><span class="project-number">03</span><span class="project-type">Computer vision</span></div>
+            <div class="project-art canvas-art" aria-hidden="true"><svg viewBox="0 0 500 180"><path d="M18 124 C90 16, 140 166, 212 76 S330 24, 382 100 S448 150, 490 44"></path></svg><span>gesture → canvas</span></div>
+            <h3>Air Canvas using Computer Vision</h3>
+            <p>A real-time gesture drawing interface using webcam input, color detection, contour tracking, and hand-movement analysis with OpenCV.</p>
+            <div class="project-tags"><span>OpenCV</span><span>Image processing</span><span>HCI</span></div>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="80">
+            <div class="project-top"><span class="project-number">04</span><span class="project-type">Machine learning</span></div>
+            <div class="project-art fraud-art" aria-hidden="true"><div class="fraud-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span>anomaly detected</span></div>
+            <h3>Credit Card Fraud Detection</h3>
+            <p>A machine-learning workflow for identifying suspicious transaction patterns, with a focus on classification quality and practical fraud-risk analysis.</p>
+            <div class="project-tags"><span>Machine Learning</span><span>Classification</span><span>Data analysis</span></div>
+          </article>
+
+          <article class="project-card project-wide" data-reveal>
+            <div>
+              <div class="project-top"><span class="project-number">05</span><span class="project-type">Content evaluation</span></div>
+              <h3>AI Social Ad Content Evaluation</h3>
+              <p>A prompt-based evaluation system that generates and compares ad-copy variations across platforms, audiences, tones, and formats to improve clarity and reduce repetition.</p>
+              <div class="project-tags"><span>Prompt testing</span><span>A/B evaluation</span><span>Content QA</span></div>
+            </div>
+            <div class="content-score" aria-hidden="true"><span>CLARITY</span><b>92</b><i style="--score:92%"></i><span>RELEVANCE</span><b>88</b><i style="--score:88%"></i><span>VARIETY</span><b>84</b><i style="--score:84%"></i></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section publications" id="publications">
+      <div class="container publications-layout">
+        <div class="section-heading sticky-heading" data-reveal>
+          <div><span class="section-index">06</span><span class="section-kicker">Publications</span></div>
+          <h2>Research translated into useful systems.</h2>
+          <p>Published work in the International Research Journal of Modernization in Engineering Technology and Science.</p>
+        </div>
+
+        <div class="publication-list">
+          <article data-reveal><span class="publication-year">2024</span><div><h3>Air Canvas using Artificial Intelligence and Computer Vision</h3><p>Computer vision · Human-computer interaction · Real-time gesture systems</p></div><span class="publication-arrow">↗</span></article>
+          <article data-reveal><span class="publication-year">2025</span><div><h3>Credit Card Fraud Detection System using Machine Learning</h3><p>Machine learning · Fraud detection · Classification</p></div><span class="publication-arrow">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-heading compact" data-reveal>
+          <div><span class="section-index">07</span><span class="section-kicker">Education</span></div>
+          <h2>Computer science foundations, applied to responsible AI.</h2>
+        </div>
+        <div class="education-grid">
+          <article data-reveal><span class="degree-mark">M</span><div><p>2024 — 2026</p><h3>M.Tech in Computer Science &amp; Engineering</h3><span>Vidarbha Institute of Technology, Nagpur</span><strong>CGPA 8.97</strong></div></article>
+          <article data-reveal data-delay="80"><span class="degree-mark">B</span><div><p>2020 — 2024</p><h3>B.Tech in Computer Science &amp; Engineering</h3><span>Rashtrasant Tukadoji Maharaj Nagpur University</span><strong>CGPA 8.07</strong></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-card" data-reveal>
+        <div class="contact-copy">
+          <span class="section-kicker">Keep the conversation going</span>
+          <h2>Curious about the work behind reliable AI?</h2>
+          <p>I enjoy talking through difficult evaluation problems, benchmark design, model failures, and practical ways to improve the data behind AI systems.</p>
+          <div class="contact-actions"><a class="button button-primary" href="mailto:kumbharemanav@gmail.com">Send me a note <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="assets/Manav-Kumbhare-CV.pdf" target="_blank" rel="noreferrer">Open resume PDF</a></div>
+        </div>
+        <div class="contact-details">
+          <a href="mailto:kumbharemanav@gmail.com"><span>Email</span><strong>kumbharemanav@gmail.com</strong></a>
+          <a href="https://www.linkedin.com/in/manav-kumbhare-893118228" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>manav-kumbhare-893118228 ↗</strong></a>
+          <a href="https://github.com/kumbharemanav123" target="_blank" rel="noreferrer"><span>GitHub</span><strong>kumbharemanav123 ↗</strong></a>
+          <a href="assets/Manav-Kumbhare-CV.pdf" target="_blank" rel="noreferrer"><span>Resume</span><strong>View PDF ↗</strong></a>
+          <div><span>Location</span><strong>Maharashtra, India<br>Remote worldwide</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><span>© <span data-year></span> Manav Kumbhare</span><span>AI Evaluation · Dataset Quality · LLM Reliability</span><a href="#home">Back to top ↑</a></div>
+  </footer>
+
+  <script src="script.js?v=4"></script>
+</body>
+</html>
