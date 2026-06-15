@@ -9,7 +9,7 @@
   <script>
     document.documentElement.dataset.theme = localStorage.getItem("manav-theme") || "dark";
   </script>
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -146,6 +146,11 @@
           <h2>A practical toolkit for evaluation, safety, and quality.</h2>
         </div>
 
+        <div class="skill-instruction" data-reveal>
+          <span class="skill-instruction-icon" aria-hidden="true">+</span>
+          <p><strong>Explore the evidence.</strong> Select any capability to see where I applied it, the problem it addressed, or why it matters in a professional AI workflow.</p>
+        </div>
+
         <div class="skills-layout" data-reveal>
           <div class="skill-group">
             <h3>Evaluation</h3>
@@ -171,6 +176,20 @@
               <span>ChatGPT</span><span>Claude</span><span>Cursor</span><span>Replit</span><span>Coding LLM Evaluation</span><span>AI-Assisted Development</span><span>Prompt Iteration</span><span>Code Review &amp; Debugging</span>
             </div>
           </div>
+        </div>
+
+        <div class="skill-popover" id="skill-popover" role="dialog" aria-labelledby="skill-popover-title" aria-describedby="skill-popover-description" hidden>
+          <div class="skill-popover-topline">
+            <span class="skill-popover-type" data-skill-type>Applied experience</span>
+            <button class="skill-popover-close" type="button" data-skill-close aria-label="Close skill details">&times;</button>
+          </div>
+          <h3 id="skill-popover-title" data-skill-title>Skill</h3>
+          <div class="skill-evidence-grid">
+            <div><span>Where</span><strong data-skill-where>Professional workflow</strong></div>
+            <div><span>Problem</span><strong data-skill-problem>Quality and reliability</strong></div>
+          </div>
+          <p id="skill-popover-description" data-skill-description></p>
+          <div class="skill-popover-footer"><span class="evidence-dot"></span><span data-skill-evidence>Evidence drawn from portfolio experience</span></div>
         </div>
       </div>
     </section>
@@ -385,6 +404,6 @@
     <div class="container"><span>© <span data-year></span> Manav Kumbhare</span><span>AI Evaluation · Dataset Quality · LLM Reliability</span><a href="#home">Back to top ↑</a></div>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
